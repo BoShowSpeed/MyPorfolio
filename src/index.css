@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+
+  body {
+    @apply bg-base-900 text-slate-300 font-sans antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: rgba(37, 99, 235, 0.18);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f2f2f2;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #cfcfcf;
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b8b8b8;
+  }
+}
+
+@layer components {
+  /* Clean surface card — thin border, solid fill. */
+  .card {
+    @apply rounded-xl border border-line bg-surface;
+  }
+
+  .card-hover {
+    @apply transition-colors duration-200 hover:border-ink/20;
+  }
+
+  /* Kept the old class names so components read cleanly. */
+  .glass {
+    @apply card;
+  }
+  .glass-hover {
+    @apply card-hover;
+  }
+
+  .gradient-text {
+    @apply text-accent;
+  }
+
+  .section-pad {
+    @apply mx-auto w-full max-w-5xl px-5 py-20 sm:px-8 md:py-24;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium
+      transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2
+      focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-base-900;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent text-base-900 hover:bg-accent/90;
+  }
+
+  .btn-ghost {
+    @apply btn border border-line text-slate-200 hover:border-ink/30 hover:text-ink;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-md border border-line bg-ink/[0.02]
+      px-2.5 py-1 text-xs font-medium text-slate-400;
+  }
+
+  .eyebrow {
+    @apply text-xs font-medium uppercase tracking-[0.2em] text-accent;
+  }
+}
