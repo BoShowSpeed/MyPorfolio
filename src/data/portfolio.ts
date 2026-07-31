@@ -18,7 +18,8 @@ export const profile = {
   university: "Paragon International University (PIU)",
   degree: "Bachelor of Computer Science",
   email: "ssun6@paragoniu.edu.kh",
-  cvUrl: "/Soksambo-Sun-CV.pdf", // CV file lives in public/ (PDF + PNG versions).
+  // Prefixed with the Vite base URL so it resolves under /MyPorfolio/ on GitHub Pages.
+  cvUrl: import.meta.env.BASE_URL + "Soksambo-Sun-CV.pdf",
 };
 
 export const socials = {
